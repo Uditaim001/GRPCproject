@@ -25,4 +25,9 @@ message GetUserRequest {
 message UserList {
   repeated User users = 1;
 }
+service UserService {
+  rpc CreateUser(User) returns (SuccessMessage);
+  rpc GetUser(GetUserRequest) returns (User);
+  rpc ListUsers(google.protobuf.Empty) returns (UserList);
+}
 
