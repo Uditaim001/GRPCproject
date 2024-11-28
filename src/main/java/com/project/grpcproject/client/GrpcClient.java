@@ -12,15 +12,15 @@ public class GrpcClient {
                 .usePlaintext().build();
         UserServiceGrpc.UserServiceBlockingStub stub= UserServiceGrpc.newBlockingStub(channel);
         UserProto.User user = UserProto.User.newBuilder()
-                .setId(3)
-                .setName("Jeremy Clarkson")
-                .setEmail("Jeremyclarksonthegrandtour@gmail.com")
-                .setDateOfBirth("1993-12-16")
+                .setId(1)
+                .setName("Jimmy Neesham")
+                .setEmail("JimmyNeeshamthegrandtour@gmail.com")
+                .setDateOfBirth("1993-11-16")
                 .build();
         UserProto.SuccessMessage response = stub.createUser(user);
         System.out.println(response.getMessage());
 
-        UserProto.GetUserRequest getUserRequest = UserProto.GetUserRequest.newBuilder().setId(3).build();
+        UserProto.GetUserRequest getUserRequest = UserProto.GetUserRequest.newBuilder().setId(1).build();
         UserProto.User receivedUser = stub.getUser(getUserRequest);
         System.out.println("User Found: \n" + receivedUser);
 

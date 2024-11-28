@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package user;
+
+option java_package = "com.example.grpc";
+option java_outer_classname = "UserServiceProto";
+
+import "google/protobuf/empty.proto";
+import "User.proto";
+service UserService {
+  rpc CreateUser(User) returns (SuccessMessage);
+  rpc GetUser(GetUserRequest) returns (User);
+  rpc ListUsers(google.protobuf.Empty) returns (UserList);
+}
